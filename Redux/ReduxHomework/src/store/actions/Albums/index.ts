@@ -18,12 +18,10 @@ export const actualizarSelectedAlbum = (payload: number | null) => ({
 export const fetchAlbums =
   () => async (dispatch: ThunkDispatch<IState, null, IAction>) => {
     try {
-      console.log("estoy en fetch album");
       const albumReponse = await axios.get(
         'https://jsonplaceholder.typicode.com/albums',
       );
       dispatch(actualizarAlbums(albumReponse.data));
-      console.log("Aqui estoy");
     } catch (error) {
       console.error(error);
     }
